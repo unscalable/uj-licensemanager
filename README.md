@@ -1,37 +1,58 @@
 # 🔐 UJ License Manager
 
-Description
+## Description
 
-UJ License Manager is a powerful and easy-to-use FiveM script designed for the QBCore / qbox Framework. It allows police officers (grade 4 or higher) and admins to manage player licenses with simple commands. This script provides a streamlined way to grant or revoke licenses, directly modifying player metadata in your database.
+**UJ License Manager** is a powerful and easy-to-use FiveM script designed for the **QBCore** or **Qbox** Framework. It provides law enforcement officers and administrators the ability to manage player licenses directly via a modern UI interface and intuitive command.
 
-## 🚀 Key Features:
+Whether you're running a roleplay server or a law enforcement-focused community, this tool makes managing licenses simple and efficient.
 
-- Grant and Revoke Licenses: Easily assign or remove licenses from players with two intuitive commands: /grantlicense and /revokelicense.
+---
 
-- Permission-Based Access: Only police (grade 4+) or admins can use the commands, ensuring security and proper use of the system.
+## 🚀 Key Features
 
-- Database Integration: License changes are immediately reflected in the player’s metadata and saved in your database.
+- ✅ **Grant and Revoke Licenses**  
+  Use the interactive UI or simple commands to manage licenses like `driver`, `weapon`, or `hunting`.
 
-- Modern Notifications: Utilizes ox_lib notifications to give users clean, non-intrusive feedback, replacing traditional chat messages for a more polished experience.
+- 🔐 **Permission-Based Access**  
+  Only players with the **police job (grade 4+)** or those in the **admin group** can open and use the license manager.
 
-- Fully Customizable: Supports multiple license types such as driver, weapon, hunting, and more—customize as needed.
+- 🧠 **Smart UI Access**  
+  The `/managelicense` command checks job and permissions before opening the NUI interface.
 
-- Whether you're running a roleplay server, a law enforcement-focused community, or just need a simple way to manage licenses, UJ License Manager is the perfect tool for the job.
+- 💾 **Database Integration**  
+  License changes are saved to the database and reflected in real-time using metadata updates.
 
-## How It Works:
+- 🔔 **Clean Notifications**  
+  Leverages `ox_lib` to send professional, non-intrusive alerts and messages.
 
-- Admins or police officers with grade 4+ can execute the /grantlicense and /revokelicense commands to adjust player licenses.
+- 🛠️ **Customizable License Types**  
+  Driver, Weapon, Hunting, and more—fully customizable to match your server's needs.
 
-- The script interacts with player metadata stored in the database, ensuring that license status is always up-to-date and available for your server’s needs.
+---
 
-## 🧱 Requirements
+## 🧩 How It Works
 
-- [QBCore Framework](https://github.com/qbcore-framework/qb-core) or [Qbox Framework](https://github.com/Qbox-project)
+- Players with the **police job (grade ≥ 4)** or in the **admin permission group** can use the `/managelicense` command.
+- A NUI interface opens, allowing the user to choose:
+  - Player ID
+  - License Type
+  - Action (Grant or Revoke)
+- The script sends data to the server which:
+  - Verifies permissions again for security
+  - Updates the license metadata
+  - Saves changes to the database
+- Players are notified of actions via `ox_lib`.
+
+---
+
+## 📦 Requirements
+
+- [QBCore Framework](https://github.com/qbcore-framework/qb-core) **or** [Qbox Framework](https://github.com/Qbox-project)
 - [oxmysql](https://github.com/overextended/oxmysql)
 - [ox_lib](https://github.com/overextended/ox_lib)
 
-> ⚠️ Ensure `ox_lib` is started **before** this resource in your `server.cfg`:
+> ⚠️ **Important:** Make sure `ox_lib` is started **before** this resource in your `server.cfg`:
 ```cfg
 ensure ox_lib
-ensure qbcore /qbox
-ensure uj-licensemanager 
+ensure qb-core / qbox
+ensure uj-licensemanager
