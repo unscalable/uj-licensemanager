@@ -28,6 +28,9 @@ Whether you're running a roleplay server or a law enforcement-focused community,
 - 🛠️ **Customizable License Types**  
   Driver, Weapon, Hunting, and more—fully customizable to match your server's needs.
 
+- 🔄 **Radial Menu Integration**  
+  Allows for opening the License Manager interface through a radial menu, giving users more flexibility.
+
 ---
 
 ## 🧩 How It Works
@@ -44,6 +47,30 @@ Whether you're running a roleplay server or a law enforcement-focused community,
 - Players are notified of actions via `ox_lib`.
 
 ---
+
+## 🔄 Radial Menu Integration:
+
+If you want to open the License Manager UI via the **radial menu** instead of using the command, you can integrate it as follows:
+
+1. **Ensure Radial Menu Support**:  
+   You must have a radial menu system already set up in your server. This is typically handled through a custom script or a community resource like `qb-radialmenu`.
+
+2. **Add a Custom Option**:  
+   Add the following client-side code to bind the radial menu button to open the UJ License Manager UI:
+
+   ```lua
+   -- Radial Menu Integration
+   RegisterNetEvent('uj_licensemanager:openRadialUI', function()
+       SetNuiFocus(true, true)
+       SendNUIMessage({ action = "openUI" })
+   end)
+
+   -- Assuming radial menu is set up, link this to the radial option
+   -- Example: Trigger the radial event when the corresponding radial menu option is selected
+   RegisterCommand('openLicenseManagerRadial', function()
+       TriggerEvent('uj_licensemanager:openRadialUI')
+   end) ```
+
 
 ## 📦 Requirements
 
