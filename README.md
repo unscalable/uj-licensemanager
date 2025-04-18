@@ -60,16 +60,13 @@ If you want to open the License Manager UI via the **radial menu** instead of us
 
    ```lua
    -- Radial Menu Integration
-   RegisterNetEvent('uj_licensemanager:openRadialUI', function()
-       SetNuiFocus(true, true)
-       SendNUIMessage({ action = "openUI" })
-   end)
-
-   -- Assuming radial menu is set up, link this to the radial option
-   -- Example: Trigger the radial event when the corresponding radial menu option is selected
-   RegisterCommand('openLicenseManagerRadial', function()
-       TriggerEvent('uj_licensemanager:openRadialUI')
-   end) ```
+   {
+        id = 'license_manager',
+        icon = 'id-card',
+        label = 'License Manager',
+        type = 'client',
+        event = 'uj_licensemanager:openUI',
+   }, ```
 
 
 ## 📦 Requirements
