@@ -13,6 +13,11 @@ RegisterCommand("managelicense", function()
     end)
 end)
 
+RegisterNetEvent("uj_licensemanager:openUI", function()
+    SetNuiFocus(true, true)
+    SendNUIMessage({ action = "openUI" })
+end)
+
 RegisterNUICallback("closeUI", function(_, cb)
     SetNuiFocus(false, false)
     cb({})
