@@ -34,3 +34,4 @@ UJ License Manager is a powerful and easy-to-use FiveM script designed for the Q
 ```cfg
 ensure ox_lib
 ensure qbcore /qbox
+ensure uj-licensemanager 
