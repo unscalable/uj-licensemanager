@@ -53,3 +53,15 @@ end)
 lib.callback.register('uj_licensemanager:canUseCommand', function(source)
     return hasLicensePermission(source)
 end)
+
+-- Send the license types to the client
+RegisterNetEvent('uj_licensemanager:getLicenseTypes', function()
+    local licenseTypes = Config.LicenseTypes  -- Get the license types from the config
+    TriggerClientEvent('uj_licensemanager:setLicenseTypes', source, licenseTypes)
+end)
+
+-- Trigger the event when the client opens the UI (via command or other methods)
+RegisterCommand("managelicense", function(source)
+    -- Send license types to the player when they use the command
+    TriggerEvent('uj_licensemanager:getLicenseTypes')
+end)

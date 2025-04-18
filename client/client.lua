@@ -1,8 +1,13 @@
+local QBCore = exports['qb-core']:GetCoreObject()
+
 RegisterCommand("managelicense", function()
     lib.callback('uj_licensemanager:canUseCommand', false, function(allowed)
         if allowed then
             SetNuiFocus(true, true)
             SendNUIMessage({ action = "openUI" })
+
+            -- Request license types from the server to populate the form
+            TriggerServerEvent('uj_licensemanager:getLicenseTypes')
         else
             lib.notify({
                 title = "UJ License Manager",
@@ -16,6 +21,9 @@ end)
 RegisterNetEvent("uj_licensemanager:openUI", function()
     SetNuiFocus(true, true)
     SendNUIMessage({ action = "openUI" })
+
+    -- Request license types from the server to populate the form
+    TriggerServerEvent('uj_licensemanager:getLicenseTypes')
 end)
 
 RegisterNUICallback("closeUI", function(_, cb)
@@ -31,4 +39,12 @@ RegisterNUICallback("submitForm", function(data, cb)
         print("Error: Invalid form data.")
     end
     cb({})
+end)
+
+-- Handling the server response to populate license types
+RegisterNetEvent("uj_licensemanager:setLicenseTypes", function(licenseTypes)
+    SendNUIMessage({
+        action = "setLicenseTypes",
+        licenseTypes = licenseTypes
+    })
 end)

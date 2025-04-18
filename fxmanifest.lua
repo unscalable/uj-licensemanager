@@ -8,7 +8,8 @@ version '1.1'
 lua54 'yes'
 
 shared_script {
-    '@ox_lib/init.lua'
+    '@ox_lib/init.lua',
+    'config.lua',
 }
 
 

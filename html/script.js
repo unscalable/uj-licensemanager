@@ -1,14 +1,29 @@
 window.addEventListener('message', function (event) {
     if (event.data.action === "openUI") {
         openUI();
+    } else if (event.data.action === "updateLicenseTypes") {
+        // Update the licenseType dropdown options
+        const licenseTypes = event.data.licenseTypes;
+
+        const licenseTypeSelect = document.getElementById("licenseType");
+        licenseTypeSelect.innerHTML = '<option value="" disabled selected>Select License Type</option>'; // Reset options
+
+        licenseTypes.forEach(function (license) {
+            const option = document.createElement("option");
+            option.value = license.value;  // Assumes license object has a `value` property
+            option.textContent = license.label;  // Assumes license object has a `label` property
+            licenseTypeSelect.appendChild(option);
+        });
     }
 });
 
+// Function to open the UI
 function openUI() {
     document.body.style.display = "flex";
     document.getElementById("licenseForm").reset(); // Clear previous data
 }
 
+// Function to close the UI
 function closeUI() {
     document.body.style.display = "none";
     fetch(`https://${GetParentResourceName()}/closeUI`, {
@@ -17,6 +32,7 @@ function closeUI() {
     });
 }
 
+// Submit form data to the server
 document.getElementById("licenseForm").addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -48,12 +64,14 @@ document.getElementById("licenseForm").addEventListener("submit", function (e) {
     });
 });
 
+// Close the UI on Escape key press
 document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") {
         closeUI();
     }
 });
 
+// Show an alert message (replace with a custom popup if needed)
 function showAlert(message) {
-    alert(message); // You can replace this with a custom UI popup if desired
+    alert(message);
 }
