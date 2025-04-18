@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+body {
+    display: none;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    justify-content: center;
+    align-items: center;
+}
+
+.computer {
+    background: #0a0a10;
+    border: 6px solid #222;
+    border-radius: 16px; /* Smaller border radius */
+    box-shadow: 0 0 30px rgba(0, 255, 229, 0.08), inset 0 0 6px #00ffe570;
+    padding: 16px; /* Increased padding */
+    width: 640px; /* Increased width to 2x */
+    height: 600px; /* Increased height */
+    margin: auto;
+    position: relative;
+}
+
+.status-bar {
+    width: 100%;
+    background: linear-gradient(90deg, #00ffe5, #006666);
+    color: #000;
+    font-weight: 600;
+    font-size: 24px; /* Increased font size */
+    text-align: center;
+    padding: 12px 0; /* Increased padding */
+    border-radius: 16px 16px 0 0;
+    letter-spacing: 1px;
+    box-shadow: inset 0 -1px 2px rgba(0,0,0,0.3);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 32px; /* Increased margin */
+    font-size: 40px; /* Increased font size */
+    color: #00ffe5;
+    text-shadow: 0 0 6px #00ffe5, 0 0 18px #007f7f;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+label {
+    margin-top: 20px; /* Increased margin */
+    font-size: 26px; /* Increased font size */
+    font-weight: 600;
+    color: #aafaf3;
+    text-shadow: 0 0 5px rgba(0, 255, 229, 0.3);
+}
+
+input, select {
+    padding: 16px; /* Increased padding */
+    margin-top: 12px;
+    border: none;
+    border-radius: 12px; /* Larger border radius */
+    font-size: 18px; /* Increased font size */
+    background: rgba(20, 20, 30, 0.95);
+    color: #fff;
+    transition: 0.3s ease;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+input:focus, select:focus {
+    outline: none;
+    background: rgba(35, 35, 55, 1);
+    border-color: #00ffe5;
+    box-shadow: 0 0 5px #00ffe5;
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='18' viewBox='0 0 24 24' width='18' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position-x: 95%;
+    background-position-y: center;
+    padding-right: 48px; /* Increased padding-right */
+}
+
+.button-group {
+    margin-top: 40px; /* Increased margin */
+    display: flex;
+    gap: 20px; /* Increased gap */
+}
+
+button {
+    flex: 1;
+    padding: 20px; /* Increased padding */
+    border: none;
+    border-radius: 12px; /* Larger border radius */
+    background: linear-gradient(135deg, #00ffe5, #007f7f);
+    color: white;
+    font-size: 18px; /* Increased font size */
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+button:hover {
+    transform: scale(1.03);
+    background: linear-gradient(135deg, #00c9a7, #006666);
+    box-shadow: 0 0 12px rgba(0, 255, 229, 0.5);
+}
+
+button[type="button"] {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+button[type="button"]:hover {
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+    .computer {
+        width: 100%;
+        height: auto;
+        padding: 16px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    label, input, select {
+        font-size: 18px;
+    }
+
+    button {
+        font-size: 20px;
+    }
+}

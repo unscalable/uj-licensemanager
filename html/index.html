@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UJ License Manager</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="computer">
+    <div class="status-bar">🖥️ UJ Terminal</div>
+    <div class="container">
+      <h1>🔐 UJ License Manager</h1>
+      <form id="licenseForm">
+        <label for="playerId">Player ID</label>
+        <input type="number" id="playerId" placeholder="Enter Player ID" required />
+
+        <label for="licenseType">License Type</label>
+        <select id="licenseType" required>
+          <option value="" disabled selected>Select License Type</option>
+          <option value="driver">Driver License</option>
+          <option value="weapon">Weapon License</option>
+          <option value="hunting">Hunting License</option>
+        </select>
+
+        <label for="action">Action</label>
+        <select id="action" required>
+          <option value="" disabled selected>Select Action</option>
+          <option value="grant">Grant</option>
+          <option value="revoke">Revoke</option>
+        </select>
+
+        <div class="button-group">
+          <button type="submit">✅ Submit</button>
+          <button type="button" onclick="closeUI()">❌ Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>

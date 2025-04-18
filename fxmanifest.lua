@@ -2,11 +2,30 @@ fx_version 'cerulean'
 game 'gta5'
 
 author 'YourName'
-description 'Edit Player Licenses Command'
-version '1.0.0'
+description 'UJ License Manager - NUI UI to grant/revoke licenses'
+version '1.1'
 
-server_script 'server.lua'
+lua54 'yes'
 
--- Make sure qb-core and oxmysql are running
-dependency 'qb-core'
-dependency 'oxmysql'
+shared_script {
+    '@ox_lib/init.lua'
+}
+
+
+client_scripts {
+	'client/**.lua',
+}
+
+server_scripts {
+	'server/**.lua',
+}
+
+ui_page {
+    'html/index.html',
+}
+
+files {
+    'html/index.html',
+    'html/style.css',
+    'html/script.js'
+}
